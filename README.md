@@ -24,7 +24,8 @@ To see usage, type at the prompt
 
 `./BootClust  -i <file> -O <dir> -n <int> -p <int> -# <int> -N -k -K -s -q -m -# -l -S`
 
-`OPTIONS
+````
+OPTIONS
         -i <file> datafile (with n (row) observations of p (column) attributes
         -O <dir>  output directory
         -n <int>  number of observations (rows)
@@ -45,7 +46,7 @@ To see usage, type at the prompt
                            6 = median
                            7 = centroid
          -S         should observations in each coordinate be scaled by their ranges (maximum - minimum values) (default: no)
-`
+````
 
 #### Output  
 
