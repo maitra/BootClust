@@ -1,6 +1,6 @@
-# Package: Bootstrapping for Significance in Clustering
+# BootClust: Bootstrapping for Significance in Clustering
 
-# Authors: Ranjan Maitra and Volodymyr Melnykov
+### Authors: Ranjan Maitra and Volodymyr Melnykov
 
 Compilation: make
 
@@ -8,6 +8,7 @@ Main program: Bootclust
 
 Important parameters:
 
+`
  Sample size: N
  Dimensionality: p
  Number of resamples: RefDistN
@@ -18,3 +19,4 @@ Important parameters:
  Method of clustering: meth (0 - spherical clusters, use kmeans; 1 - ellipsoidal clusters, use hierarchical clustering)
 
 Output:  classification vectors and set of produced p-values (corresponding files are placed in folder OUTPUT)
+`
