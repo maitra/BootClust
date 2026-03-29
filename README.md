@@ -1,4 +1,4 @@
-# BootClust: Bootstrapping for Significance in Clustering
+## BootClust: Bootstrapping for Significance in Clustering
 
 ### Authors: Ranjan Maitra and Volodymyr Melnykov
 
@@ -50,4 +50,8 @@ OPTIONS
 
 #### Output  
 
-classification vectors and set of produced *p*-values (corresponding files are placed in folder `OUTPUT`)
+Classification vectors and set of produced *p*-values (corresponding files are placed in folder `OUTPUT`)
+
+For details on methodology and examples on performance, please see:
+
+Maitra, R., Melnykov, V. & S. N. Lahiri. (2012) "Bootstrapping for significance of compact clusters in multi-dimensional datasets." *Journal of the American Statistical Association*, 107(497):378-392. DOI: 10.1080/01621459.2011.646935. <https://www.tandfonline.com/doi/abs/10.1080/01621459.2011.646935>
