@@ -1,0 +1,81 @@
+
+
+/*
+
+  Bootstrapping for clustering significance
+  Copyright (C) 2012  Ranjan Maitra and Volodymyr Melnykov
+
+    DISCLAIMER: THIS SOURCE CODE IS SUPPLIED "AS IS" WITHOUT WARRANTY OF
+    ANY KIND, AND ITS AUTHOR AND THE JOURNAL OF MACHINE LEARNING RESEARCH
+    (JMLR) AND JMLR'S PUBLISHERS AND DISTRIBUTORS, DISCLAIM ANY AND ALL
+    WARRANTIES, INCLUDING BUT NOT LIMITED TO ANY IMPLIED WARRANTIES OF
+    MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, AND ANY
+    WARRANTIES OR NON INFRINGEMENT. THE USER ASSUMES ALL LIABILITY AND
+    RESPONSIBILITY FOR USE OF THIS SOURCE CODE, AND NEITHER THE AUTHOR NOR
+    JMLR, NOR JMLR'S PUBLISHERS AND DISTRIBUTORS, WILL BE LIABLE FOR
+    DAMAGES OF ANY KIND RESULTING FROM ITS USE. Without limiting the
+    generality of the foregoing, neither the author, nor JMLR, nor JMLR's
+    publishers and distributors, warrant that the Source Code will be
+    error-free, will operate without interruption, or will meet the needs
+    of the user.
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    Authors' contact information:
+    Ranjan Maitra						Volodymyr Melnykov
+    maitra@iastate.edu					vmelnykov@ua.edu
+    Department of Statistics			Department of Information Systems,
+    Iowas State Unviersity				Statistics, and Management Science
+	Ames, IA 50011						The University of Alabama
+										Tuscaloosa, AL 35487
+*/
+
+
+/*  Given a hierarchical clustering through a sequence of agglomerations,
+    derive the assignment for the top (lev-1)th level of the hierarchy. 
+    
+    Parameters:                                                    
+    n:          number of observations                             
+    ia,ib:      vectors of dimension N defining the agglomerations 
+    lev:        number of clusters in partition.           
+    iclass:     n-dimensional vector of cluster assignments       
+
+    C code written by Ranjan Maitra, Baltimore (07/02/02) */ 
+
+void hclass(int n, int *ia, int *ib, int lev, int *iclass)
+{
+  int i,j,k;
+  for (i=0;i<n;i++) {
+    iclass[i]=0;
+  }
+  j=lev-1;
+  for (i=n-lev;i<(n-1);i++) {
+    iclass[ib[i]]=j;
+    for (k=(n-lev-1);k>=0;k--) {
+      if (iclass[ia[k]]==j) {
+	iclass[ib[k]]=j;
+	}
+    }
+    j--;
+  }
+  j=0;
+  iclass[ia[n-2]]=j;
+  for (k=(n-lev-1);k>=0;k--) {
+    if (iclass[ia[k]]==j) {
+      iclass[ib[k]]=j;
+    }
+  }
+  return;
+}
+

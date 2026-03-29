@@ -1,0 +1,36 @@
+
+Package: Bootstrapping for Clustering Significance
+Authors: Ranjan Maitra and Volodymyr Melnykov
+
+DISCLAIMER: THIS SOURCE CODE IS SUPPLIED “AS IS” WITHOUT WARRANTY OF
+ANY KIND, AND ITS AUTHOR AND THE JOURNAL OF MACHINE LEARNING RESEARCH
+(JMLR) AND JMLR’S PUBLISHERS AND DISTRIBUTORS, DISCLAIM ANY AND ALL
+WARRANTIES, INCLUDING BUT NOT LIMITED TO ANY IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, AND ANY
+WARRANTIES OR NON INFRINGEMENT. THE USER ASSUMES ALL LIABILITY AND
+RESPONSIBILITY FOR USE OF THIS SOURCE CODE, AND NEITHER THE AUTHOR NOR
+JMLR, NOR JMLR’S PUBLISHERS AND DISTRIBUTORS, WILL BE LIABLE FOR
+DAMAGES OF ANY KIND RESULTING FROM ITS USE. Without limiting the
+generality of the foregoing, neither the author, nor JMLR, nor JMLR’s
+publishers and distributors, warrant that the Source Code will be
+error-free, will operate without interruption, or will meet the needs
+of the user.
+
+
+
+Compilation:	make 
+
+Main program:	Bootclust
+
+Important parameters:
+
+	Sample size: N
+	Dimensionality: p
+	Number of resamples: RefDistN
+	Minimum number of clusters: minK
+	Maximum number of clusters: maxK
+	Significance level: alpha
+	Linkage for hierarchical clustering: hcrit (1 - Ward, 2 - single, 3 - complete, 4 - average, 5 - McQuitty, 6 - median, 7 - centroid)
+	Method of clustering: meth (0 - spherical clusters, use kmeans; 1 - ellipsoidal clusters, use hierarchical clustering)
+
+Output:		classification vectors and set of produced p-values (corresponding files are placed in folder OUTPUT)
